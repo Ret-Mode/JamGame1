@@ -3,9 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 namespace Game1
 {
-    /// <summary>
-    /// This is the main type for your game.
-    /// </summary>
+
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
@@ -14,7 +12,8 @@ namespace Game1
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
+            Content.RootDirectory = "assets";
+			Compiler c = new Compiler();
         }
 
         /// <summary>
@@ -63,7 +62,7 @@ namespace Game1
 
             // TODO: Add your update logic here
 
-            base.Update(gameTime);
+			base.Update(gameTime);
         }
 
         /// <summary>
