@@ -8,14 +8,15 @@ namespace Game1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        
+		Compiler c;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "assets";
+            Content.RootDirectory = "Contents";
 	    
-	    // NOTE (R-M): test for CSharp compiler
-	    Compiler c = new Compiler("Scripts\\test.script", true);
+	    	// NOTE (R-M): test for CSharp compiler
+	    	c = new Compiler();
+			c.ReadScript("test");
         }
 
         protected override void Initialize()
@@ -40,17 +41,19 @@ namespace Game1
 	
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+			if (Keyboard.GetState().IsKeyDown(Keys.F12)) c.RunScript("test", "Message");
+			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-	    
-            // TODO: Add your update logic here
-	    
-	    base.Update(gameTime);
+
+			// TODO: Add your update logic here
+
+		 	base.Update(gameTime);
         }
 	
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+
 	    
             // TODO: Add your drawing code here
 	    
