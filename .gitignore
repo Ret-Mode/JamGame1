@@ -5,7 +5,7 @@ XamarinProject/Game1/obj/**/*
 XamarinProject/Game1.userprefs
 VisualStudio12/Game1/Content/*
 VisualStudio12/Game1/Content/**/*
-VisualStudio12/Game1/x86/*
-VisualStudio12/Game1/x86/**/*
+VisualStudio12/Game1/obj/*
+VisualStudio12/Game1/obj/**/*
 VisualStudio12/Game1*suo
 Output
