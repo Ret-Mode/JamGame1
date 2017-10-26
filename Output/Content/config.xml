@@ -1,0 +1,10 @@
+<Config>
+  <Actor>
+    <Player DimensionX="10" DimensionY="10" MoveAccelerationX="0,5" MoveAccelerationY="0,5" MaxSpeedX="5" MaxSpeedY="5" SpeedFalloffX="0,9" SpeedFalloffY="0,9" Texture="Player_L" />
+  </Actor>
+  <Textures>
+    <Player_L FaceLeft="True" />
+    <Bulean_R FaceLeft="False" />
+  </Textures>
+  <Version>V003</Version>
+</Config>
