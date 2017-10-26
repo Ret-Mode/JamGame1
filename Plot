@@ -5,6 +5,7 @@ The accused is claimed to be guilty of commiting murder, however he/she knows th
 Because the death penalty is no longer legal he/she is sentenced back in time to die from hands of other creatures/people.
 Sentenced is send back in time.
 Blackout.
+...
 --------
 
 --Plot--
@@ -21,3 +22,10 @@ Proposed time periods of our fights, bosses and collected materials:
 - middle ages   - heavy cavalry          - relic (element marked with time-travel)
 - (our) present - tank                   - petrol (fuel)
 - near future   - mech                   - computer (calculation device)
+
+Alternative wacky bosses for each age:
+- stone tank pulled by dinos
+- Roman/Greek god
+- dragon or inquisition
+- medical experiment failure (some kind of mutant)
+- alien
