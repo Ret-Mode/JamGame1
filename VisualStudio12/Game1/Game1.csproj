@@ -32,13 +32,28 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\..\src\CollisionLine.cs">
+      <Link>CollisionLine.cs</Link>
+    </Compile>
     <Compile Include="..\..\src\Game1.cs">
       <Link>Game1.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\Movement.cs">
+      <Link>Movement.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\Player.cs">
+      <Link>Player.cs</Link>
     </Compile>
     <Compile Include="..\..\src\Program.cs">
       <Link>Program.cs</Link>
     </Compile>
     <Compile Include="..\..\src\Compiler.cs" />
+    <Compile Include="..\..\src\SetupReader.cs">
+      <Link>SetupReader.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\Vector2D.cs">
+      <Link>Vector2D.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
