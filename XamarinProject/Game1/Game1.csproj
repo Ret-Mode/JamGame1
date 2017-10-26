@@ -59,6 +59,13 @@
       <Link>Program.cs</Link>
     </Compile>
     <Compile Include="..\..\src\Compiler.cs" />
+    <Compile Include="..\..\src\Movement.cs">
+      <Link>Movement.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\Vector2D.cs" />
+    <Compile Include="..\..\src\CollisionLine.cs" />
+    <Compile Include="..\..\src\Player.cs" />
+    <Compile Include="..\..\src\SetupReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
