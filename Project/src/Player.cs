@@ -47,8 +47,11 @@ namespace Game1 {
 			{
 				MoveFaceLeft = true;
 			}
+			Vector2 vpos = new Vector2();
+			vpos.X = PlayerPhysics.Position.X - PlayerTexture.Width/2;
+			vpos.Y = PlayerPhysics.Position.Y - PlayerTexture.Height;
 			SpriteEffects Flip = ((MoveFaceLeft==TextureFaceLeft) ? SpriteEffects.None : SpriteEffects.FlipHorizontally);
-			spriteBatch.Draw(PlayerTexture, PlayerPhysics.Position, null, Color.White, 0.0f, Vector2.Zero, 1.0f, Flip, 0.0f);
+			spriteBatch.Draw(PlayerTexture, vpos, null, Color.White, 0.0f, Vector2.Zero, 1.0f, Flip, 0.0f);
 
 		}
 	};

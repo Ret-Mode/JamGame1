@@ -15,10 +15,12 @@ namespace Game1
 		};
 
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
-		Player player;
+        //SpriteBatch spriteBatch;
+		Player[] player;
 		SetupReader sr;
 		Compiler c;
+
+		DrawingClass drawingClass;
 
 		// NOTE (R-M):we have warning without volatile here
 		Texture_Base[] tex = null;
@@ -32,7 +34,7 @@ namespace Game1
 			sr = new SetupReader();
 	    	// NOTE (R-M): test for CSharp compiler
 	    	c = new Compiler();
-			player = new Player();
+			player = new Player[1] {new Player() };
 
 			
         }
@@ -46,22 +48,22 @@ namespace Game1
 	
         protected override void LoadContent()
         {
-			spriteBatch = new SpriteBatch(GraphicsDevice);
-
+			//spriteBatch = new SpriteBatch(GraphicsDevice);
+			drawingClass = new DrawDebug(GraphicsDevice);
 
 			c.ReadScript("test");
 
 			tex = sr.ReadTextures(tex, Content);
 
-			sr.ReadActor(player, "Player", tex);
+			sr.ReadActor(player[0], "Player", tex);
 
-			player.Initialize(tex, new Vector2(200.0f, 150.0f));
+			player[0].Initialize(tex, new Vector2(200.0f, 150.0f));
 
         }
 	
         protected override void UnloadContent()
         {
-			sr.SaveActor(player, "Player");
+			sr.SaveActor(player[0], "Player");
 			sr.SaveTextures(tex);
         }
 	
@@ -69,7 +71,7 @@ namespace Game1
         {
 			MovementDir Dir;
 			if (Keyboard.GetState().IsKeyDown(Keys.F12)) c.RunScript("test", "Message");
-			if (Keyboard.GetState().IsKeyDown(Keys.F11)) sr.ReadActor(player, "Player", tex);
+			if (Keyboard.GetState().IsKeyDown(Keys.F11)) sr.ReadActor(player[0], "Player", tex);
 
 			if(Keyboard.GetState().IsKeyDown(Keys.W)){
 				if (Keyboard.GetState().IsKeyDown(Keys.A)){
@@ -95,7 +97,7 @@ namespace Game1
 				Dir = MovementDir.Still;
 			}
 
-			player.PlayerPhysics.Move(Dir);
+			player[0].PlayerPhysics.Move(Dir);
 
 			// NOTE (R-M): This should be moved from here
 
@@ -107,13 +109,9 @@ namespace Game1
 
         protected override void Draw(GameTime gameTime)
         {
-			GraphicsDevice.Clear(Color.Black);
-
-			spriteBatch.Begin();
-			player.Draw(spriteBatch);
-			spriteBatch.End();
-	    
-	    
+			drawingClass.StartDraw(GraphicsDevice);
+			drawingClass.Draw(player);
+			drawingClass.EndDraw();
             base.Draw(gameTime);
         }
     }

@@ -60,6 +60,7 @@
     <Compile Include="src\Player.cs" />
     <Compile Include="src\SetupReader.cs" />
     <Compile Include="src\Game1.cs" />
+    <Compile Include="src\DrawingClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
