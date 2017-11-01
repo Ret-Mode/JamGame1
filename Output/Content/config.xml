@@ -6,7 +6,7 @@
   <Textures>
     <Player_L FaceLeft="True" />
     <Bulean_R FaceLeft="False" />
-    <WalkCycle FaceLeft="False" />
+    <WalkCycle FaceLeft="False" /> 
   </Textures>
   <Version>V003</Version>
 </Config>

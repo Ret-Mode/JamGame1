@@ -5,7 +5,6 @@ Project/*suo
 Project/Content/bin/**/*
 Project/Content/obj/**/*
 Output/*
-Output/**/*
 Output/**/*.xml
 Output/**/*.exe
 Output/**/*.dll
