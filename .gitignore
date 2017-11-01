@@ -6,5 +6,8 @@ Project/Content/bin/**/*
 Project/Content/obj/**/*
 Output/*
 Output/**/*
+Output/**/*.xml
+Output/**/*.exe
+Output/**/*.dll
 !Output/Scripts/*
 !Output/Content/config.xml

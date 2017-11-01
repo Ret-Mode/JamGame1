@@ -70,4 +70,39 @@ namespace Game1
 		}
 	};
 
+	public class DrawRelease : DrawingClass
+	{
+		SpriteBatch sBatch;
+
+		public DrawRelease(GraphicsDevice device)
+		{
+			sBatch = new SpriteBatch(device);
+		}
+
+		~DrawRelease()
+		{
+			sBatch.Dispose();
+		}
+
+		public override void StartDraw(GraphicsDevice device)
+		{
+			device.Clear(Color.Black);
+			sBatch.Begin();
+		}
+
+		public override void EndDraw()
+		{
+			sBatch.End();
+		}
+
+		public override void Draw(Player[] players)
+		{
+			foreach (Player p in players)
+			{
+				p.Draw(sBatch);
+			}
+		}
+	};
+
+
 }

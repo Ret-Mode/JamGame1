@@ -5,8 +5,8 @@ using Microsoft.Xna.Framework.Input;
 namespace Game1
 {
 
-    public class Game1 : Game
-    {
+	public class Game1 : Game
+	{
 
 		public struct Texture_Base
 		{
@@ -14,8 +14,8 @@ namespace Game1
 			public bool FaceLeft;
 		};
 
-        GraphicsDeviceManager graphics;
-        //SpriteBatch spriteBatch;
+		GraphicsDeviceManager graphics;
+		//SpriteBatch spriteBatch;
 		Player[] player;
 		SetupReader sr;
 		Compiler c;
@@ -24,38 +24,44 @@ namespace Game1
 
 		// NOTE (R-M):we have warning without volatile here
 		Texture_Base[] tex = null;
-        public Game1()
+		public Game1()
 
-        {
-			
-            graphics = new GraphicsDeviceManager(this);
+		{
+
+			graphics = new GraphicsDeviceManager(this);
 
 			Content.RootDirectory = "Content";
 			sr = new SetupReader();
-	    	// NOTE (R-M): test for CSharp compiler
-	    	c = new Compiler();
-			player = new Player[1] {new Player() };
+			// NOTE (R-M): test for CSharp compiler
+			c = new Compiler();
+			player = new Player[2] { new Player(), new Player() };
+			player[0].Intelligence = new PlayerAI();
+			player[1].Intelligence = new IdiotAI(IdiotAI.IdiotActions.Wait,10);
 
-			
-        }
+		}
 
-        protected override void Initialize()
-        {
+		protected override void Initialize()
+		{
 
-            base.Initialize();
+			base.Initialize();
 
-        }
-	
-        protected override void LoadContent()
-        {
+		}
+
+		protected override void LoadContent()
+		{
 			//spriteBatch = new SpriteBatch(GraphicsDevice);
-			drawingClass = new DrawDebug(GraphicsDevice);
 
+#if DEBUG
+			drawingClass = new DrawDebug(GraphicsDevice);
+#else
+			drawingClass = new DrawRelease(GraphicsDevice);
+#endif
 			c.ReadScript("test");
 
 			tex = sr.ReadTextures(tex, Content);
 
 			sr.ReadActor(player[0], "Player", tex);
+			sr.ReadActor(player[1], "Idiot", tex);
 
 			player[0].Initialize(tex, new Vector2(200.0f, 150.0f));
 
@@ -64,46 +70,28 @@ namespace Game1
         protected override void UnloadContent()
         {
 			sr.SaveActor(player[0], "Player");
+			sr.SaveActor(player[1], "Idiot");
 			sr.SaveTextures(tex);
         }
 	
         protected override void Update(GameTime gameTime)
         {
-			MovementDir Dir;
+
 			if (Keyboard.GetState().IsKeyDown(Keys.F12)) c.RunScript("test", "Message");
 			if (Keyboard.GetState().IsKeyDown(Keys.F11)) sr.ReadActor(player[0], "Player", tex);
 
-			if(Keyboard.GetState().IsKeyDown(Keys.W)){
-				if (Keyboard.GetState().IsKeyDown(Keys.A)){
-					Dir = MovementDir.UpLeft;
-				} else if (Keyboard.GetState().IsKeyDown(Keys.D)){
-					Dir = MovementDir.UpRight;
-				} else {
-					Dir = MovementDir.Up;
-				}
-			} else if(Keyboard.GetState().IsKeyDown(Keys.S)){
-				if (Keyboard.GetState().IsKeyDown(Keys.A)){
-					Dir = MovementDir.DownLeft;
-				} else if (Keyboard.GetState().IsKeyDown(Keys.D)){
-					Dir = MovementDir.DownRight;
-				} else {
-					Dir = MovementDir.Down;
-				}
-			} else 	if (Keyboard.GetState().IsKeyDown(Keys.A)){
-				Dir = MovementDir.Left;
-			} else if (Keyboard.GetState().IsKeyDown(Keys.D)){
-				Dir = MovementDir.Right;
-			} else {
-				Dir = MovementDir.Still;
+			foreach (Player p in player)
+			{
+				p.Intelligence.InventNextActions(player, p);
 			}
-
-			player[0].PlayerPhysics.Move(Dir);
 
 			// NOTE (R-M): This should be moved from here
 
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+
+			//Console.Write(gameTime.ToString);
 		 	base.Update(gameTime);
         }
 

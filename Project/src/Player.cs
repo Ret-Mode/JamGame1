@@ -5,6 +5,7 @@ namespace Game1 {
 	public class Player {
 		public Texture2D PlayerTexture;
 		public Movement PlayerPhysics;
+		public IAI Intelligence;
 		public bool TextureFaceLeft;
 		private bool MoveFaceLeft;
         public static int FrameCounter = 0; //Actual frame of animation
@@ -38,6 +39,16 @@ namespace Game1 {
 
 		public void Update(){
 
+		}
+
+		// NOTE (R-M): this shoulb be divided into 2 functions in the future
+		public void SetPosition(int X, int Y, bool ResetPhysics){
+			PlayerPhysics.Position.X = (float)X;
+			PlayerPhysics.Position.Y = (float)Y;
+			if (ResetPhysics)
+			{
+				PlayerPhysics.Speed = PlayerPhysics.Acceleration = Vector2.Zero;
+			}
 		}
 
 		public void Draw(SpriteBatch spriteBatch){

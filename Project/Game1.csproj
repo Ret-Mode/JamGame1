@@ -20,9 +20,8 @@
     <OutputPath>..\Output</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>2</WarningLevel>
+    <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
-    <AssemblyName>Game1</AssemblyName>
     <CustomCommands>
       <CustomCommands>
         <Command>
@@ -55,12 +54,12 @@
     <Compile Include="src\Program.cs" />
     <Compile Include="src\Compiler.cs" />
     <Compile Include="src\Movement.cs" />
-    <Compile Include="src\Vector2D.cs" />
     <Compile Include="src\CollisionLine.cs" />
     <Compile Include="src\Player.cs" />
     <Compile Include="src\SetupReader.cs" />
     <Compile Include="src\Game1.cs" />
     <Compile Include="src\DrawingClass.cs" />
+    <Compile Include="src\IAI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
