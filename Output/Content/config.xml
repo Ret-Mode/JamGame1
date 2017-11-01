@@ -1,10 +1,11 @@
 <Config>
   <Actor>
-    <Player DimensionX="10" DimensionY="10" MoveAccelerationX="5" MoveAccelerationY="5" MaxSpeedX="5" MaxSpeedY="5" SpeedFalloffX="0" SpeedFalloffY="0" Texture="Bulean_R" />
+    <Player DimensionX="10" DimensionY="10" MoveAccelerationX="5" MoveAccelerationY="5" MaxSpeedX="5" MaxSpeedY="5" SpeedFalloffX="0" SpeedFalloffY="0" Texture="WalkCycle" />
   </Actor>
   <Textures>
     <Player_L FaceLeft="True" />
     <Bulean_R FaceLeft="False" />
+    <WalkCycle FaceLeft="False" />
   </Textures>
   <Version>V003</Version>
 </Config>

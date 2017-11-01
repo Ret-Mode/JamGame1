@@ -108,9 +108,9 @@ namespace Game1
 			{
 				textures = new Game1.Texture_Base[E.Count];
 
-				for (int i = 0; i < E.Count; ++i)
-				{
-					String Name = E[i].Name;
+                for (int i = 0; i < E.Count; ++i)
+                {
+                    String Name = E[i].Name;
 					String Face = ((XmlElement)E[i]).GetAttribute("FaceLeft");
 
 					textures[i].tex = cmanager.Load<Texture2D>(Name);

@@ -7,6 +7,8 @@ namespace Game1 {
 		public Movement PlayerPhysics;
 		public bool TextureFaceLeft;
 		private bool MoveFaceLeft;
+        public static int FrameCounter = 0; //Actual frame of animation
+        public static int SkipFrameCounter = 3; //How many frames skipped before next frame of animation
 		public String ID;
 		public String TextureName;
 		public Player() {
@@ -48,11 +50,14 @@ namespace Game1 {
 				MoveFaceLeft = true;
 			}
 			Vector2 vpos = new Vector2();
-			vpos.X = PlayerPhysics.Position.X - PlayerTexture.Width/2;
-			vpos.Y = PlayerPhysics.Position.Y - PlayerTexture.Height;
-			SpriteEffects Flip = ((MoveFaceLeft==TextureFaceLeft) ? SpriteEffects.None : SpriteEffects.FlipHorizontally);
-			spriteBatch.Draw(PlayerTexture, vpos, null, Color.White, 0.0f, Vector2.Zero, 1.0f, Flip, 0.0f);
 
+            int size_of_frame = 32;
+            float scale = 3; //Scale of our sprite
+            Rectangle ActualFrame = new Rectangle(FrameCounter * size_of_frame, 0, size_of_frame, size_of_frame); //Cut out one frame
+            vpos.X = PlayerPhysics.Position.X - scale * size_of_frame / 2;
+            vpos.Y = PlayerPhysics.Position.Y - scale * size_of_frame / 2; 
+            SpriteEffects Flip = ((MoveFaceLeft==TextureFaceLeft) ? SpriteEffects.None : SpriteEffects.FlipHorizontally);
+			spriteBatch.Draw(PlayerTexture, vpos, ActualFrame, Color.White, 0.0f, Vector2.Zero, scale, Flip, 0.0f);
 		}
 	};
 }

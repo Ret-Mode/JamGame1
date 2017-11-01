@@ -28,7 +28,6 @@
 #begin ka1.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
-/processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /build:ka1.spritefont
 
@@ -43,4 +42,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:../assets/Bulean_R.png
+
+#begin ../assets/WalkCycle.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../assets/WalkCycle.png
 

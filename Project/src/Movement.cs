@@ -17,6 +17,7 @@ namespace Game1
 		public Vector2 MoveAcceleration;
 		public Vector2 MaxSpeed;
 		public Vector2 SpeedFalloff;
+        public int FrameSkipCounter = 0;
 		public bool BoxCollision(Movement Other) {
 			if(Math.Abs(this.Position.X - Other.Position.X) > (this.Dimension.X + Other.Dimension.X)) return false;
 			else if (Math.Abs(this.Position.Y - Other.Position.Y) > (this.Dimension.Y + Other.Dimension.Y)) return false;
@@ -26,7 +27,16 @@ namespace Game1
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		private void MoveAcc(MovementDir Dir)
 		{
-			switch (Dir){
+            FrameSkipCounter++; //Skip given numbers of frames between new frame generation
+            if (FrameSkipCounter % Player.SkipFrameCounter == 0)
+            {
+                if (Dir != MovementDir.Still)
+                    Player.FrameCounter++;
+                if (Player.FrameCounter > 6)
+                    Player.FrameCounter = 1;
+            }
+
+            switch (Dir){
 				case(MovementDir.Down):
 					Acceleration.Y = MoveAcceleration.Y;
 					break;
@@ -56,7 +66,8 @@ namespace Game1
 					Acceleration.Y = - MoveAcceleration.Y;
 					break;
 				case(MovementDir.Still):
-					break;
+                    Player.FrameCounter = 0;
+                    break;
 				default:
 					break;
 			}
