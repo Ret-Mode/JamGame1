@@ -1,0 +1,1 @@
+xcopy  %CD%\Content\bin\assets\* %CD%\..\Output\Content\ /Y /S /F

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/Jędrzej/Desktop/JamGame1-master/JamGame1-Drawing_First_Attempt/Project/Content/ka1.spritefont</SourceFile>
+  <SourceTime>2017-10-29T13:24:42+01:00</SourceTime>
+  <DestFile>C:/Users/Jędrzej/Desktop/JamGame1-master/JamGame1-Drawing_First_Attempt/Project/Content/bin/Windows/ka1.xnb</DestFile>
+  <DestTime>2017-11-01T16:54:04.4662746+01:00</DestTime>
+  <Importer>FontDescriptionImporter</Importer>
+  <ImporterTime>2016-03-30T08:36:08+02:00</ImporterTime>
+  <Processor>FontDescriptionProcessor</Processor>
+  <ProcessorTime>2016-03-30T08:36:08+02:00</ProcessorTime>
+  <Parameters>
+    <Key>TextureFormat</Key>
+    <Value>Compressed</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

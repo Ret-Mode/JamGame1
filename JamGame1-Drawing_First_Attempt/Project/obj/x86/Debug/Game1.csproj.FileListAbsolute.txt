@@ -1,0 +1,7 @@
+C:\Users\Jędrzej\Desktop\JamGame1-master\JamGame1-Drawing_First_Attempt\Output\Content\ka1.xnb
+C:\Users\Jędrzej\Desktop\JamGame1-master\JamGame1-Drawing_First_Attempt\Project\obj\x86\Debug\Game1.csproj.CoreCompileInputs.cache
+C:\Users\Jędrzej\Desktop\JamGame1-master\JamGame1-Drawing_First_Attempt\Output\Game1.exe
+C:\Users\Jędrzej\Desktop\JamGame1-master\JamGame1-Drawing_First_Attempt\Output\Game1.pdb
+C:\Users\Jędrzej\Desktop\JamGame1-master\JamGame1-Drawing_First_Attempt\Project\obj\x86\Debug\Game1.csprojResolveAssemblyReference.cache
+C:\Users\Jędrzej\Desktop\JamGame1-master\JamGame1-Drawing_First_Attempt\Project\obj\x86\Debug\Game1.exe
+C:\Users\Jędrzej\Desktop\JamGame1-master\JamGame1-Drawing_First_Attempt\Project\obj\x86\Debug\Game1.pdb
